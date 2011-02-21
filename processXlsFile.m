@@ -1,6 +1,7 @@
-function [R_1,R_2,R_3,OligoID,GeneID] = processXlsFile()
+function [R_1,R_2,R_3,GeneID] = processXlsFile()
 
-load karin;
+% Load the non-repetitive averaged data
+load karin_flitered; 
 numGenes = size(data,1);
 
 barcode_1   = [82677,82678,82679,82680,90187,90188,90341,90342];
@@ -30,7 +31,7 @@ replicate_3_cy3_map = containers.Map({47204,47205,47207,47352,47353,47354},{5,6.
 replicate_3_cy5_map = containers.Map({47204,47205,47207,47352,47353,47354},{4,5,3,2,0,1});
 
 % After how many columns the data matrix starts in .xls
-col_offset = 2;
+col_offset = 1;
 
 % Retrieve data for Replicate 1 - Cy3
 keys_replicate_1 = keys(replicate_1_cy3_map);
